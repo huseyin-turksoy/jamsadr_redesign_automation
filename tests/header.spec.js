@@ -1,0 +1,23 @@
+import { test, expect } from '@playwright/test';
+
+test('headerNav', async ({ page }) => {
+  await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/');
+  await page.getByText('MENU Neutrals Rules & Clauses').click();
+  await expect(page.getByLabel('Neutrals').getByRole('link', { name: 'Neutrals' })).toBeVisible();
+  await expect(page.getByLabel('Primary Navigation Menu').getByRole('link', { name: 'Rules & Clauses' })).toBeVisible();
+  await expect(page.getByLabel('Locations').getByRole('link', { name: 'Locations' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'ADR Services' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Practice Areas & Industries' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'News & Insights' })).toBeVisible();
+  await expect(page.getByLabel('Primary Navigation Menu').getByRole('link', { name: 'About' })).toBeVisible();
+  await expect(page.getByRole('combobox', { name: 'Search keyword' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'JAMS Logo' })).toBeVisible();
+    
+})
+
+test('headerUI', async ({ page }) => {
+
+    await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/');
+    const header = await page.locator('header');  
+    await expect(header).toHaveScreenshot('header.png');
+});
