@@ -32,7 +32,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
-  snapshotPathTemplate: './UI_Screen_Shots/{testFileDir}/{testName}-{platform}{ext}',
+  snapshotPathTemplate: './UI_Screen_Shots/{testFileDir}/{testName}-{ext}',
 
   /* Configure projects for major browsers */
   projects: [
