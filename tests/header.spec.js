@@ -19,5 +19,5 @@ test('headerUI', async ({ page }) => {
 
     await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/');
     const header = await page.locator('header');  
-    await expect(header).toHaveScreenshot('header.png', { maxDiffPixelRatio: 0.01 });
+    await expect(header).toHaveScreenshot('header.png');
 });
