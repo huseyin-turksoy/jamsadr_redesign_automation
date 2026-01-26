@@ -19,9 +19,9 @@ test('footerUI', async ({ page }) => {
   await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/');
 
   const footer = await page.locator('footer'); 
-  /*
-  await page.waitForSelector('.footer-content-social-links');
   
+  await page.waitForSelector('.footer-content-social-links');
+  /*
   await page.evaluate(() => {
     const el = document.querySelector('.footer-content-social-links');
     
