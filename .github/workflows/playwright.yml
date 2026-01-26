@@ -75,7 +75,7 @@ jobs:
           server_port: ${{ secrets.SMTP_PORT }}
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "🚨 Test Failure in Zoetis Pets Form Automation"
+          subject: "🚨 Test Failure in Jams ADR Redesign Automation"
           to: huseyin.turksoy@nmqdigital.com
           from: ${{ secrets.SMTP_USERNAME }}
           html_body: |
@@ -85,7 +85,7 @@ jobs:
             <ul>
             ${{ steps.failed_tests.outputs.failed_tests_html }}
             </ul>
-            <p>📑 <a href="https://huseyin-turksoy.github.io/zoetispets_form_automation/">View Full Report</a></p>
+            <p>📑 <a href="https://huseyin-turksoy.github.io/JamsADR_Redesign_Automation/">View Full Report</a></p>
 
       
           
