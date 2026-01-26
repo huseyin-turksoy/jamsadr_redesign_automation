@@ -20,10 +20,10 @@ test('footerUI', async ({ page }) => {
 
   const footer = await page.locator('footer'); 
   
-  /** to hide an element for test purpose 
+  /** to hide an element for test purpose */
    await page.evaluate(() => {
   document.querySelector('.footer-content-social-links')?.classList.add('hidden');
-  }); */
+  }); 
 
   await expect(footer).toHaveScreenshot('footer.png', { maxDiffPixelRatio: 0.01 });
 
