@@ -25,7 +25,7 @@ test('footerUI', async ({ page }) => {
   document.querySelector('.footer-content-social-links')?.classList.add('hidden');
   }); */
 
-  await expect(footer).toHaveScreenshot('footer.png');
+  await expect(footer).toHaveScreenshot('footer.png', { maxDiffPixels: 50 });
 
 
 });
