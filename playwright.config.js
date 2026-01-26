@@ -31,7 +31,11 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    viewport: { width: 1280, height: 800 },
+    deviceScaleFactor: 1,
   },
+
+  
   snapshotPathTemplate: './UI_Screen_Shots/{testFileDir}/{testName}-{ext}',
 
   /* Configure projects for major browsers */
@@ -40,6 +44,8 @@ export default defineConfig({
       name: 'Firefox',
       use: { ...devices['Desktop Firefox'] },
     },
+
+    
 
     /* Test against mobile viewports. */
     // {
