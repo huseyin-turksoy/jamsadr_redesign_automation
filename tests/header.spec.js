@@ -11,7 +11,7 @@ test('headerNav', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'News & Insights' })).toBeVisible();
   await expect(page.getByLabel('Primary Navigation Menu').getByRole('link', { name: 'About' })).toBeVisible();
   await expect(page.getByRole('combobox', { name: 'Search keyword' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'JAMS Logo' })).toBeVisible();
+  await expect(page.locator('.logo')).toBeVisible();
     
 })
 
