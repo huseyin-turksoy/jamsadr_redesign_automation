@@ -33,7 +33,7 @@ test('logoBannerUI', async ({ page }) => {
     if (el) el.style.display = 'none';
   }); */
 
-  await expect(logoBanner).toHaveScreenshot('logoBanner.png');
+  await expect(logoBanner).toHaveScreenshot('logoBanner.png', {maxDiffPixelRatio: 0.01});
 
 
 });

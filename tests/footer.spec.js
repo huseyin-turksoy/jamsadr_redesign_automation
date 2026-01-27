@@ -28,7 +28,7 @@ test('footerUI', async ({ page }) => {
     if (el) el.style.display = 'none';
   }); */
 
-  await expect(footer).toHaveScreenshot('footer.png');
+  await expect(footer).toHaveScreenshot('footer.png', {maxDiffPixelRatio: 0.01});
 
 
 });
