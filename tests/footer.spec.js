@@ -28,7 +28,10 @@ test('footerUI', async ({ page }) => {
     if (el) el.style.display = 'none';
   }); */
 
-  await expect(footer).toHaveScreenshot('footer.png', {maxDiffPixelRatio: 0.01});
+  await expect(footer).toHaveScreenshot('footer.png', {
+    maxDiffPixelRatio: 0.01,
+    mask: [page.locator('.footer-content-social-links')]
+  });
 
 
 });

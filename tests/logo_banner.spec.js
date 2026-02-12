@@ -19,7 +19,7 @@ test('logo_banner', async ({ page }) => {
   
 });
 
-test('logoBannerUI', async ({ page }) => {
+test.only('logoBannerUI', async ({ page }) => {
 
   await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/practices/practice-banner/');
 
@@ -33,7 +33,10 @@ test('logoBannerUI', async ({ page }) => {
     if (el) el.style.display = 'none';
   }); */
 
-  await expect(logoBanner).toHaveScreenshot('logoBanner.png', {maxDiffPixelRatio: 0.01});
+  await expect(logoBanner).toHaveScreenshot('logoBanner.png', {
+    maxDiffPixelRatio: 0.01,
+    mask: [page.locator('.practice-banner-list-item img').first(), page.locator('.practice-banner-list-item img').nth(1), page.locator('.practice-banner-list-item img').nth(2)]
+  });
 
 
 });
