@@ -24,6 +24,11 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+
+  timeout: 100* 1000,
+    expect: {
+    timeout: 10000
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -33,16 +38,24 @@ export default defineConfig({
     trace: 'on-first-retry',
     viewport: { width: 1280, height: 800 },
     deviceScaleFactor: 1,
+    /* Take screenshot on test failure */
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
   },
 
   
-  snapshotPathTemplate: './UI_Screen_Shots/{testFileDir}/{testName}-{ext}',
+  snapshotPathTemplate: './UI_Screen_Shots/{projectName}/{testFileDir}/{testName}-{ext}',
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'Firefox',
       use: { ...devices['Desktop Firefox'] },
+    },
+
+    {
+      name: 'iPhone 12 Pro',
+      use: { ...devices['iPhone 12 Pro'] },
     },
 
     

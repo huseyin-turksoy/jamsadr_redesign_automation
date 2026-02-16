@@ -49,7 +49,7 @@ jobs:
 
       
 
-            # Add this step before the email step
+      # 8. Add this step before the email step
       - name: Extract failed test names
         if: failure()
         id: failed_tests

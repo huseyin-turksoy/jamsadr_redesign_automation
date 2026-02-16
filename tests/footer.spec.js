@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
+import urls from '../config/urls';
 
 test('footer', async ({ page }) => {
-  await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/');
+  await page.goto(urls.dev.home);
   await expect(page.getByRole('contentinfo').getByRole('img', { name: 'JAMS Logo' })).toBeVisible();
   await expect(page.getByText('Stay updated on the latest in')).toBeVisible();
   await expect(page.getByRole('textbox', { name: 'Email address' })).toBeVisible();
@@ -16,7 +17,7 @@ test('footer', async ({ page }) => {
 
 test('footerUI', async ({ page }) => {
 
-  await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/');
+  await page.goto(urls.dev.home);
 
   const footer = await page.locator('footer'); 
   

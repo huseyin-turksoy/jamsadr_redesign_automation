@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
+import urls from '../config/urls';
 
 test('logo_banner', async ({ page }) => {
-  await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/practices/practice-banner/');
+  await page.goto(urls.preview.practiceBanner);
   await expect(page.locator('.practice-banner-title').first()).toBeVisible();
 
   await expect(page.locator('.practice-banner-list-item-image').first()).toBeVisible();
@@ -19,11 +20,11 @@ test('logo_banner', async ({ page }) => {
   
 });
 
-test.only('logoBannerUI', async ({ page }) => {
+test('logoBannerUI', async ({ page }) => {
 
-  await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/practices/practice-banner/');
+  await page.goto(urls.preview.practiceBanner);
 
-  const logoBanner = await page.locator('.practice-banner-container').first(); 
+  const logoBanner = page.locator('.practice-banner-container').first(); 
   
   //await page.waitForSelector('.footer-content-social-links');
   /*
@@ -36,6 +37,7 @@ test.only('logoBannerUI', async ({ page }) => {
   await expect(logoBanner).toHaveScreenshot('logoBanner.png', {
     maxDiffPixelRatio: 0.01,
     mask: [page.locator('.practice-banner-list-item img').first(), page.locator('.practice-banner-list-item img').nth(1), page.locator('.practice-banner-list-item img').nth(2)]
+    
   });
 
 

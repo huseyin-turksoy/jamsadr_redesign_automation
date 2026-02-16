@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
+import urls from '../config/urls';
 
 test('headerNav', async ({ page }) => {
-  await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/');
+  await page.goto(urls.preview.home);
   await page.getByText('MENU Neutrals Rules & Clauses').click();
   await expect(page.getByLabel('Neutrals').getByRole('link', { name: 'Neutrals' })).toBeVisible();
   await expect(page.getByLabel('Primary Navigation Menu').getByRole('link', { name: 'Rules & Clauses' })).toBeVisible();
@@ -17,7 +18,7 @@ test('headerNav', async ({ page }) => {
 
 test('headerUI', async ({ page }) => {
 
-    await page.goto('https://nmq-digital.gitlab.io/crownpeak/jams-adr/jams-adr-redesign-frontend-v2/');
+    await page.goto(urls.preview.home);
     const header = await page.locator('header');  
     await expect(header).toHaveScreenshot('header.png', {maxDiffPixelRatio: 0.01});
 });
