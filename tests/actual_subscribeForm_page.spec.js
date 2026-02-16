@@ -47,7 +47,7 @@ test('actual_subscribeForm_page', {tag: ['@actual', '@forms']}, async ({ page },
   const screenshotName = `${projectName}-subscribeFormPage.png`;
 
   await expect(page).toHaveScreenshot(screenshotName, {
-    //maxDiffPixelRatio: 0.01,
+    maxDiffPixelRatio: 0.01,
     fullPage: true,
   });
 

@@ -91,7 +91,7 @@ test('actual_newCaseInquiry_page', {tag: ['@actual','@forms']}, async ({ page },
   const screenshotName = `${projectName}-newCaseInquiryPage.png`;
 
   await expect(page).toHaveScreenshot(screenshotName, {
-    //maxDiffPixelRatio: 0.01,
+    maxDiffPixelRatio: 0.01,
     fullPage: true,
   });
 

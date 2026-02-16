@@ -23,7 +23,7 @@ test('actual_caseManager_form', {tag: ['@actual', '@forms']}, async ({ page }, t
   const screenshotName = `${projectName}-caseManagerForm.png`;
 
   await expect(page).toHaveScreenshot(screenshotName, {
-    //maxDiffPixelRatio: 0.01,
+    maxDiffPixelRatio: 0.01,
     fullPage: false,
   });
 

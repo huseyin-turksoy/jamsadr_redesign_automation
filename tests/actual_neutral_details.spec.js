@@ -42,7 +42,7 @@ test('actual_neutral_details_page_' + uri.split('/')[2], {tag: ['@actual']}, asy
   const screenshotName = `${projectName}-neutralDetails-${uri.split('/')[2]}.png`;
 
   await expect(page).toHaveScreenshot(screenshotName, {
-    //maxDiffPixelRatio: 0.01,
+    maxDiffPixelRatio: 0.01,
     fullPage: true,
   });
 

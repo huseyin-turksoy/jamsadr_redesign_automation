@@ -26,7 +26,7 @@ test('actual_allNeutrals_page', {tag: ['@actual']}, async ({ page }, testInfo) =
   const screenshotName = `${projectName}-fullAllNeutralsPage.png`;
 
   await expect(page).toHaveScreenshot(screenshotName, {
-    //maxDiffPixelRatio: 0.01,
+    maxDiffPixelRatio: 0.01,
     fullPage: false, //take only visible area screenshot
   });
 

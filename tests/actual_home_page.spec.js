@@ -36,7 +36,7 @@ test('actual_home_page', {tag: ['@actual']}, async ({ page }, testInfo) => {
   const screenshotName = `${projectName}-fullHomePage.png`;
 
   await expect(page).toHaveScreenshot(screenshotName, {
-    //maxDiffPixelRatio: 0.01,
+    maxDiffPixelRatio: 0.01,
     fullPage: true,
   });
 

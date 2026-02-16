@@ -34,7 +34,7 @@ test('actual_clauses_page', {tag: ['@actual']}, async ({ page }, testInfo) => {
   const screenshotName = `${projectName}-clausesPage.png`;
 
   await expect(page).toHaveScreenshot(screenshotName, {
-    //maxDiffPixelRatio: 0.01,
+    maxDiffPixelRatio: 0.01,
     fullPage: true,
   });
 
