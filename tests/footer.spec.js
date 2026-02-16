@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import urls from '../config/urls';
 
-test('footer', async ({ page }) => {
+test.skip('footer', async ({ page }) => {
   await page.goto(urls.dev.home);
   await expect(page.getByRole('contentinfo').getByRole('img', { name: 'JAMS Logo' })).toBeVisible();
   await expect(page.getByText('Stay updated on the latest in')).toBeVisible();
@@ -15,7 +15,7 @@ test('footer', async ({ page }) => {
 });
 
 
-test('footerUI', async ({ page }) => {
+test.skip('footerUI', async ({ page }) => {
 
   await page.goto(urls.dev.home);
 

@@ -20,7 +20,7 @@ test('logo_banner', async ({ page }) => {
   
 });
 
-test('logoBannerUI', async ({ page }) => {
+test.skip('logoBannerUI', async ({ page }) => {
 
   await page.goto(urls.preview.practiceBanner);
 

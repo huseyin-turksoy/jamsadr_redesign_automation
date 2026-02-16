@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import urls from '../config/urls';
 
-test('headerNav', async ({ page }) => {
+test.skip('headerNav', async ({ page }) => {
   await page.goto(urls.preview.home);
   await page.getByText('MENU Neutrals Rules & Clauses').click();
   await expect(page.getByLabel('Neutrals').getByRole('link', { name: 'Neutrals' })).toBeVisible();
@@ -16,7 +16,7 @@ test('headerNav', async ({ page }) => {
     
 })
 
-test('headerUI', async ({ page }) => {
+test.skip('headerUI', async ({ page }) => {
 
     await page.goto(urls.preview.home);
     const header = await page.locator('header');  

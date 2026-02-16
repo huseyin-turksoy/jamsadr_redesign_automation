@@ -76,7 +76,7 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
           subject: "🚨 Test Failure in Jams ADR Redesign Automation"
-          to: huseyin.turksoy@nmqdigital.com
+          to: huseyin.turksoy@nmqdigital.com;nihan.isbilir@nmqdigital.com;oguz.akkaya@nmqdigital.com
           from: ${{ secrets.SMTP_USERNAME }}
           html_body: |
             <h2>Some of the form tests have failed</h2>
