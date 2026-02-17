@@ -7,9 +7,10 @@ test('actual_caseManager_form', {tag: ['@actual', '@forms']}, async ({ page }, t
 
   await page.goto(url);
 
-  await page.waitForLoadState('networkidle');
+  //await page.waitForLoadState('networkidle');
 
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
+  await oneTrust.waitFor();
   await oneTrust.click();
 
   await page.locator('.case-manager-cta').first().click();

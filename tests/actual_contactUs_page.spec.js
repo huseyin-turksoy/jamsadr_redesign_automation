@@ -7,7 +7,7 @@ test('actual_contactUs_page', {tag: ['@actual','@forms']}, async ({ page }, test
 
   await page.goto(url);
 
-  await page.waitForLoadState('networkidle');
+  //await page.waitForLoadState('networkidle');
 
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
   await oneTrust.click();
@@ -50,9 +50,10 @@ test('actual_newCaseInquiry_page', {tag: ['@actual','@forms']}, async ({ page },
 
   await page.goto(url);
 
-  await page.waitForLoadState('networkidle');
+  //await page.waitForLoadState('networkidle');
 
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
+  await oneTrust.waitFor();
   await oneTrust.click();
 
   await page.getByText('New Case Inquiry Request').click();

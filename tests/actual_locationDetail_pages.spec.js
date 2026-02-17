@@ -15,7 +15,7 @@ test('actual_location_details_page_' + uri.split('/')[2], {tag: ['@actual']}, as
 
   await page.goto(url);
 
-  //await page.waitForLoadState('networkidle');
+  ////await page.waitForLoadState('networkidle');
 
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
   await oneTrust.waitFor();

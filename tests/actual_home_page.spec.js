@@ -7,9 +7,10 @@ test('actual_home_page', {tag: ['@actual']}, async ({ page }, testInfo) => {
 
   await page.goto(url);
 
-  await page.waitForLoadState('networkidle');
+  //await page.waitForLoadState('networkidle');
 
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
+  await oneTrust.waitFor();
   await oneTrust.click();
 
   // Lazy loaded görselleri yüklemek için sayfayı scroll et
@@ -29,7 +30,7 @@ test('actual_home_page', {tag: ['@actual']}, async ({ page }, testInfo) => {
   });
 
   // Sayfanın tamamen yüklenmesini bekle
-  //await page.waitForLoadState('networkidle');
+  ////await page.waitForLoadState('networkidle');
 
   // Proje adına göre farklı screenshot ismi ver (ör. Firefox, Mobile)
   const projectName = (testInfo.project && testInfo.project.name) ? testInfo.project.name : 'unknown';

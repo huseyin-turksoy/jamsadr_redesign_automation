@@ -7,7 +7,7 @@ test('actual_newsIndex_page', {tag: ['@actual']}, async ({ page }, testInfo) => 
 
   await page.goto(url);
 
-  //await page.waitForLoadState('networkidle');
+  ////await page.waitForLoadState('networkidle');
 
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
   await oneTrust.waitFor();

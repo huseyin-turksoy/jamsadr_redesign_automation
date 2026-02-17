@@ -7,7 +7,7 @@ test('actual_allNeutrals_page', {tag: ['@actual']}, async ({ page }, testInfo) =
 
     await page.goto(url);
 
-    await page.waitForLoadState('networkidle');
+    //await page.waitForLoadState('networkidle');
     
     
 
@@ -20,7 +20,7 @@ test('actual_allNeutrals_page', {tag: ['@actual']}, async ({ page }, testInfo) =
     
        
     // Sayfanın tamamen yüklenmesini bekle
-    //await page.waitForLoadState('networkidle');
+    ////await page.waitForLoadState('networkidle');
   
   const projectName = (testInfo.project && testInfo.project.name) ? testInfo.project.name : 'unknown';
   const screenshotName = `${projectName}-fullAllNeutralsPage.png`;
