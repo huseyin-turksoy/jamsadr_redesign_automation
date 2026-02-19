@@ -40,7 +40,7 @@ export default defineConfig({
     deviceScaleFactor: 1,
     /* Take screenshot on test failure */
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    //video: 'retain-on-failure',
   },
 
   

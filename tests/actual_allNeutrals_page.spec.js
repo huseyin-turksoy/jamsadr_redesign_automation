@@ -1,5 +1,6 @@
 import{test, expect} from '@playwright/test';
 import urls from '../config/urls';
+import { hideElement } from '../config/utils'; 
 
 test('actual_allNeutrals_page', {tag: ['@actual']}, async ({ page }, testInfo) => {
 
@@ -13,7 +14,11 @@ test('actual_allNeutrals_page', {tag: ['@actual']}, async ({ page }, testInfo) =
 
     try {
       const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
-      await oneTrust.click();    
+      await oneTrust.click();
+
+      await hideElement(page, '.header');
+      await hideElement(page, '.subscribe-banner-container');
+      await hideElement(page, '.footer');    
     } catch (e) {
       console.log('OneTrust cookie banner not found, proceeding without clicking.');
     }

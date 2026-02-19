@@ -1,5 +1,6 @@
 import{test, expect} from '@playwright/test';
 import urls from '../config/urls';
+import { hideElement } from '../config/utils';  
 
 test('actual_newsIndex_page', {tag: ['@actual']}, async ({ page }, testInfo) => {
   
@@ -12,6 +13,12 @@ test('actual_newsIndex_page', {tag: ['@actual']}, async ({ page }, testInfo) => 
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
   await oneTrust.waitFor();
   await oneTrust.click();
+
+  await hideElement(page, '.header');
+  await hideElement(page, '.subscribe-banner-container');
+  await hideElement(page, '.footer');
+
+  //await hideElement(page, '[data-component-name="footer"]');
 
   // scroll the page to load lazy loaded images
   await page.evaluate(() => {

@@ -1,5 +1,6 @@
 import{test, expect} from '@playwright/test';
 import urls from '../config/urls';
+import { hideElement } from '../config/utils'; 
 
 test('actual_contactUs_page', {tag: ['@actual','@forms']}, async ({ page }, testInfo) => {
   
@@ -11,6 +12,10 @@ test('actual_contactUs_page', {tag: ['@actual','@forms']}, async ({ page }, test
 
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
   await oneTrust.click();
+
+  await hideElement(page, '.header');
+  await hideElement(page, '.subscribe-banner-container');
+  await hideElement(page, '.footer');
 
   // scroll the page to load lazy loaded images
   await page.evaluate(() => {
@@ -55,6 +60,10 @@ test('actual_newCaseInquiry_page', {tag: ['@actual','@forms']}, async ({ page },
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
   await oneTrust.waitFor();
   await oneTrust.click();
+
+  await hideElement(page, '.header');
+  await hideElement(page, '.subscribe-banner-container');
+  await hideElement(page, '.footer');
 
   await page.getByText('New Case Inquiry Request').click();
   await page.getByRole('textbox', { name: 'First Name* First Name* First' }).click();

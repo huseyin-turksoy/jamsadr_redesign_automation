@@ -3,7 +3,7 @@ name: Jams ADR Redesign Test Automation
 on:
   schedule:
     # Every day at 5:30 UTC (which is 8:30 AM UTC+3)
-    - cron: '30 5 * * *'
+   # - cron: '30 5 * * *'
   workflow_dispatch: # allows manual triggering
 
 jobs:

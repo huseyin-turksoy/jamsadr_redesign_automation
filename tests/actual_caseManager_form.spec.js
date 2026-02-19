@@ -1,5 +1,6 @@
 import{test, expect} from '@playwright/test';
 import urls from '../config/urls';
+import { hideElement } from '../config/utils'; 
 
 test('actual_caseManager_form', {tag: ['@actual', '@forms']}, async ({ page }, testInfo) => {
   
@@ -12,6 +13,10 @@ test('actual_caseManager_form', {tag: ['@actual', '@forms']}, async ({ page }, t
   const oneTrust = page.locator('#onetrust-accept-btn-handler').first();
   await oneTrust.waitFor();
   await oneTrust.click();
+
+  await hideElement(page, '.header');
+  await hideElement(page, '.subscribe-banner-container');
+  await hideElement(page, '.footer');
 
   await page.locator('.case-manager-cta').first().click();
   await page.getByText('JAMS Neutral Inquiry').waitFor({ timeout: 60000 });
