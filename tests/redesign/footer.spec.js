@@ -1,0 +1,38 @@
+import { test, expect } from '@playwright/test';
+import urls from '../../config/urls';
+
+test.skip('footer', {tag: ['@redesign']}, async ({ page }) => {
+  await page.goto(urls.dev);
+  await expect(page.getByRole('contentinfo').getByRole('img', { name: 'JAMS Logo' })).toBeVisible();
+  await expect(page.getByText('Stay updated on the latest in')).toBeVisible();
+  await expect(page.getByRole('textbox', { name: 'Email address' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Subscribe' })).toBeVisible();
+  await expect(page.getByRole('navigation', { name: 'Footer Menu' })).toBeVisible();
+  await expect(page.locator('.footer-content-social-links')).toBeVisible();
+  await expect(page.locator('section').filter({ hasText: 'Disclaimer This website is' })).toBeVisible();
+  
+
+});
+
+
+test.skip('footerUI', {tag: ['@redesign']}, async ({ page }) => {
+
+  await page.goto(urls.dev);
+
+  const footer = await page.locator('footer'); 
+  
+  await page.waitForSelector('.footer-content-social-links');
+  /*
+  await page.evaluate(() => {
+    const el = document.querySelector('.footer-content-social-links');
+    
+    if (el) el.style.display = 'none';
+  }); */
+
+  await expect(footer).toHaveScreenshot('footer.png', {
+    maxDiffPixelRatio: 0.02,
+    //mask: [page.locator('.footer-content-social-links')]
+  });
+
+
+});
