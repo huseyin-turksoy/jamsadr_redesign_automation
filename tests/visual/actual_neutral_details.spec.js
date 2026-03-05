@@ -19,7 +19,7 @@ const uris =['/neutrals/cwik',
 
 uris.forEach((uri) => {
 
-test.only('actual_neutral_details_page_' + uri.split('/')[2], {tag: ['@visual']}, async ({ page }, testInfo) => {
+test('actual_neutral_details_page_' + uri.split('/')[2], {tag: ['@visual']}, async ({ page }, testInfo) => {
   
     const url = urls.base + uri;
 
