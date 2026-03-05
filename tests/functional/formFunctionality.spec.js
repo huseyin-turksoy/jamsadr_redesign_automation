@@ -33,7 +33,7 @@ test('contactUs form submission - new case inquiry', { tag: ['@functional'] }, a
 });
 
 
-test.only('contactUs form submission - case related support', {tag : ['@functional'] }, async ({ page }, testInfo) => {
+test('contactUs form submission - case related support', {tag : ['@functional'] }, async ({ page }, testInfo) => {
 
     if (testInfo.project.name === 'iPhone 12 Pro') {
         test.skip(); // or: test.skip(true, 'Not supported on mobile');
