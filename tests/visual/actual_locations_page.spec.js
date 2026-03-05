@@ -14,6 +14,11 @@ test('actual_locations_page', {tag: ['@visual']}, async ({ page }, testInfo) => 
   await oneTrust.waitFor();
   await oneTrust.click();
 
+  const locationSearchComponent = page.locator('.locations-search');
+  if (!(await locationSearchComponent.isVisible())) {
+    await page.reload();
+  }
+
   await hideElement(page, '.header');
   //await hideElement(page, '.subscribe-banner-container');
   await hideElement(page, '[data-component-name="footer"]');

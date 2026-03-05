@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
 import urls from '../../config/urls';
+import { handleCookiesBanner } from '../../config/utils';
 
 test('contactUs form submission - new case inquiry', { tag: ['@functional'] }, async ({ page }, testInfo) => {
     
     if (testInfo.project.name === 'iPhone 12 Pro') {
         test.skip(); // or: test.skip(true, 'Not supported on mobile');
     }
-
   await page.goto(urls.base +'/contact');
-  await page.getByRole('button', { name: 'Accept All Cookies' }).click();
+  await handleCookiesBanner(page);
   await page.getByText('New Case Inquiry Request').click();
   await page.getByRole('textbox', { name: 'First Name* First Name* First' }).click();
   await page.getByRole('textbox', { name: 'First Name* First Name* First' }).fill('form test');
@@ -33,14 +33,13 @@ test('contactUs form submission - new case inquiry', { tag: ['@functional'] }, a
 });
 
 
-test.only('contactUs form submission - case related support', {tag : ['@functional'] }, async ({ page }, testInfo) => {
+test('contactUs form submission - case related support', {tag : ['@functional'] }, async ({ page }, testInfo) => {
 
     if (testInfo.project.name === 'iPhone 12 Pro') {
         test.skip(); // or: test.skip(true, 'Not supported on mobile');
     }
-
     await page.goto(urls.base +'/contact');
-    await page.getByRole('button', { name: 'Accept All Cookies' }).click();
+    await handleCookiesBanner(page);
     await page.getByText('Case Related Support E.g.').click();
     await page.getByRole('textbox').first().click();
     await page.getByRole('textbox').first().fill('1');

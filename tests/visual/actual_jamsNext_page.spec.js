@@ -42,7 +42,7 @@ test('actual_jamsNext_page', {tag: ['@visual']}, async ({ page }, testInfo) => {
   await expect(page.locator('//main')).toHaveScreenshot(screenshotName, {
     maxDiffPixelRatio: 0.02,
     fullPage: true,
-    mask: [page.locator('.next-contact-us-card').first()]
+    //mask: [page.locator('.next-contact-us-card').first()]
     
   });
 

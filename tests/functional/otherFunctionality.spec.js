@@ -1,5 +1,6 @@
 import {test, expect} from '@playwright/test';
 import urls from '../../config/urls';
+import { handleCookiesBanner } from '../../config/utils';
 
 test('404 check', {tag: ['@functional']}, async({page}, testInfo) => {
 
@@ -8,7 +9,7 @@ test('404 check', {tag: ['@functional']}, async({page}, testInfo) => {
     }
 
   await page.goto(urls.base+'/testpage');
-  await page.getByRole('button', { name: 'Accept All Cookies' }).click();
+  await handleCookiesBanner(page);
   await expect(page.getByRole('heading', { name: 'Page Not Found' })).toBeVisible();
   await expect(page.locator('header').filter({ hasText: 'Page Not Found Sorry, the' }).locator('img')).toBeVisible();
   await expect(page.getByRole('link', { name: 'HOMEPAGE' })).toBeVisible();

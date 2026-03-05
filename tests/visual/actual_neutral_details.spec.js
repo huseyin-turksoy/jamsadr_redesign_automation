@@ -4,13 +4,22 @@ import { hideElement } from '../../config/utils';
 
 const uris =['/neutrals/cwik', 
              '/neutrals/abbott',
-             '/neutrals/abrams'            
+             '/neutrals/abrams',
+             '/neutrals/abel',
+             '/neutrals/abrahamson',
+             '/neutrals/allred', 
+             '/neutrals/zuckerman',
+             '/neutrals/zacks',
+             '/neutrals/ungaro',
+             '/neutrals/donald',
+             '/neutrals/garrie',   
+            
             ];
 
 
 uris.forEach((uri) => {
 
-test('actual_neutral_details_page_' + uri.split('/')[2], {tag: ['@visual']}, async ({ page }, testInfo) => {
+test.only('actual_neutral_details_page_' + uri.split('/')[2], {tag: ['@visual']}, async ({ page }, testInfo) => {
   
     const url = urls.base + uri;
 

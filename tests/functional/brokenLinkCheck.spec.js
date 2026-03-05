@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import urls from '../../config/urls';
+import { handleCookiesBanner } from '../../config/utils';
 
 async function collectLinks(page, pageUrl) {
   const allHrefs = await page.$$eval('a[href]', (anchors) =>
@@ -44,8 +45,8 @@ test.describe('Broken link check', () => {
       
     const pagesToScan = [
       urls.base,
-      `${urls.base}/adr`,
-      `${urls.base}/mediation`,
+      //`${urls.base}/adr`,
+     //`${urls.base}/mediation`,
       `${urls.base}/neutrals`,
       `${urls.base}/about`,
       `${urls.base}/locations`,

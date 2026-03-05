@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import urls from '../../config/urls';
+import { handleCookiesBanner } from '../../config/utils';
 
 test('Neutral Search Functionality', {tag: ['@functional']}, async ({ page }, testInfo) => {
 
@@ -8,7 +9,7 @@ test('Neutral Search Functionality', {tag: ['@functional']}, async ({ page }, te
       }
 
   await page.goto(urls.base + '/neutrals/search');
-  await page.getByRole('button', { name: 'Accept All Cookies' }).click();
+  await handleCookiesBanner(page);
   await page.locator('span').filter({ hasText: 'Neutral Role' }).click();
   await page.getByTitle('Mediator').click();
   await page.getByText('Location 1').click();
@@ -35,7 +36,7 @@ test('internal search functionality', {tag: ['@functional']}, async ({ page }, t
     }
 
     await page.goto(urls.base+'/');
-    await page.getByRole('button', { name: 'Accept All Cookies' }).click();
+    await handleCookiesBanner(page);
     await page.getByRole('button', { name: 'Open search' }).click();
     await page.getByRole('combobox', { name: 'Search site' }).click();
     await page.getByRole('combobox', { name: 'Search site' }).fill('jams');

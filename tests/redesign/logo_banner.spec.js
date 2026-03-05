@@ -36,7 +36,7 @@ test.skip('logoBannerUI', {tag: ['@redesign']}, async ({ page }) => {
 
   await expect(logoBanner).toHaveScreenshot('logoBanner.png', {
     maxDiffPixelRatio: 0.02,
-    mask: [page.locator('.practice-banner-list-item img').first(), page.locator('.practice-banner-list-item img').nth(1), page.locator('.practice-banner-list-item img').nth(2)]
+    //mask: [page.locator('.practice-banner-list-item img').first(), page.locator('.practice-banner-list-item img').nth(1), page.locator('.practice-banner-list-item img').nth(2)]
     
   });
 
