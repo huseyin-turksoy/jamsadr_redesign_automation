@@ -23,8 +23,8 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html', { outputFolder: `playwright-report/${new Date().toISOString().replace(/[:.]/g, '-')}` }]],
-  /*reporter: [['html', { outputFolder: 'playwright-report' }]],*/ 
+  /*reporter: [['html', { outputFolder: `playwright-report/${new Date().toISOString().replace(/[:.]/g, '-')}` }]], */ 
+  reporter: [['html', { outputFolder: 'playwright-report' }]],
 
   timeout: 100* 1000,
     expect: {
