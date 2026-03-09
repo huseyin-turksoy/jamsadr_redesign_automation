@@ -1,25 +1,29 @@
 import { test, expect } from '@playwright/test';
 import urls from '../../config/urls';
+import {handleCookiesBanner} from '../../config/utils'
 
-test.skip('footer', {tag: ['@redesign']}, async ({ page }) => {
-  await page.goto(urls.dev);
-  await expect(page.getByRole('contentinfo').getByRole('img', { name: 'JAMS Logo' })).toBeVisible();
+test('footer', {tag: ['@redesign']}, async ({ page }) => {
+
+  await page.goto(urls.base);
+  await handleCookiesBanner(page);
+  await expect(page.getByText('Need to submit a case with').first()).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Need to submit a case with' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Go to Home Page' })).toBeVisible();
   await expect(page.getByText('Stay updated on the latest in')).toBeVisible();
   await expect(page.getByRole('textbox', { name: 'Email address' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Subscribe' })).toBeVisible();
   await expect(page.getByRole('navigation', { name: 'Footer Menu' })).toBeVisible();
-  await expect(page.locator('.footer-content-social-links')).toBeVisible();
   await expect(page.locator('section').filter({ hasText: 'Disclaimer This website is' })).toBeVisible();
   
 
 });
 
 
-test.skip('footerUI', {tag: ['@redesign']}, async ({ page }) => {
+test('footerUI', {tag: ['@redesign']}, async ({ page }) => {
 
-  await page.goto(urls.dev);
+  await page.goto(urls.base);
+  await handleCookiesBanner(page);
 
-  const footer = await page.locator('footer'); 
+  const footer = page.locator('footer[data-component-name="footer"]'); 
   
   await page.waitForSelector('.footer-content-social-links');
   /*

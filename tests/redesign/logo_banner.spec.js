@@ -2,29 +2,27 @@ import { test, expect } from '@playwright/test';
 import urls from '../../config/urls';
 
 test.skip('logo_banner', {tag: ['@redesign']}, async ({ page }) => {
-  await page.goto(urls.preview.practiceBanner);
-  await expect(page.locator('.practice-banner-title').first()).toBeVisible();
 
-  await expect(page.locator('.practice-banner-list-item-image').first()).toBeVisible();
-  await expect(page.locator('.practice-banner-list-item-image').nth(1)).toBeVisible();
-  await expect(page.locator('.practice-banner-list-item-image').nth(2)).toBeVisible();
+  await page.goto(urls.dev+"/test");
 
-  await expect(page.locator('.practice-banner-list-item-title').first()).toBeVisible();
-  await expect(page.locator('.practice-banner-list-item-title').nth(1)).toBeVisible();
-  await expect(page.locator('.practice-banner-list-item-title').nth(2)).toBeVisible();
-
-  await expect(page.locator('.practice-banner-list-item-description').first()).toBeVisible();
-  await expect(page.locator('.practice-banner-list-item-description').nth(1)).toBeVisible();
-  await expect(page.locator('.practice-banner-list-item-description').nth(2)).toBeVisible();
-
+  await expect(page.getByRole('heading', { name: 'JAMS serves as the arbitral' }).first()).toBeVisible();
+  await expect(page.locator('li:nth-child(1) > .coh-container > .coh-link').first()).toBeVisible();
+  await expect(page.locator('li:nth-child(2) > .coh-container > .coh-link').first()).toBeVisible();
+  await expect(page.locator('li:nth-child(3) > .coh-container > .coh-link').first()).toBeVisible();
+  await expect(page.getByRole('link', { name: 'US Center for SafeSport' }).first()).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Horseracing Integrity &' }).first()).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Women’s Tennis Association' }).first()).toBeVisible();
+  await expect(page.getByText('The US Center for SafeSport').first()).toBeVisible();
+  await expect(page.getByText('The Horseracing Integrity &').first()).toBeVisible();
+  await expect(page.getByText('The Women\'s Tennis').first()).toBeVisible();
   
 });
 
-test.skip('logoBannerUI', {tag: ['@redesign']}, async ({ page }) => {
+test('logoBannerUI', {tag: ['@redesign']}, async ({ page }) => {
 
-  await page.goto(urls.preview.practiceBanner);
+  await page.goto(urls.dev+"/test");
 
-  const logoBanner = page.locator('.practice-banner-container').first(); 
+  const logoBanner = page.locator('section[data-component-name="practice-banner"]').first(); 
   
   //await page.waitForSelector('.footer-content-social-links');
   /*
